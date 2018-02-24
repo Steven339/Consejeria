@@ -29,6 +29,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         EditText correo = (EditText) findViewById(R.id.correo);
         EditText pass = (EditText) findViewById(R.id.pass);
+        String user = correo.getText().toString();
+        String password = pass.getText().toString();
+        if(user.equals("")){
+            Toast.makeText(getApplicationContext(),"Ingrese el correo electrónico",Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(password.equals("")){
+            Toast.makeText(getApplicationContext(),"Ingrese la contraseña",Toast.LENGTH_LONG).show();
+            return;
+        }
 
         RequestQueue queue = Volley.newRequestQueue(this);
         String url ="http://192.168.0.19/uniminuto/sesion.php?correo="+correo.getText().toString()+"&pass="+pass.getText().toString();
