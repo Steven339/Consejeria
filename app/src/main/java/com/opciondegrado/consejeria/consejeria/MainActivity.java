@@ -1,5 +1,6 @@
 package com.opciondegrado.consejeria.consejeria;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -20,14 +22,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final TextView mTextView = (TextView) findViewById(R.id.textView);
+        final TextView mTextView = findViewById(R.id.textView);
         mTextView.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
-        EditText correo = (EditText) findViewById(R.id.correo);
-        EditText pass = (EditText) findViewById(R.id.pass);
+        final Intent principal = new Intent(this,principal.class);
+        EditText correo = findViewById(R.id.correo);
+        EditText pass = findViewById(R.id.pass);
         String user = correo.getText().toString();
         String password = pass.getText().toString();
         if(user.equals("")){
@@ -47,7 +51,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onResponse(String response) {
                         if(!response.equals("[]")){
-                            Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
+                            Gson gson = new Gson();
+                            user u = gson.fromJson(response, user.class);
+                            //Bundle bundle = new Bundle();
+                            //bundle.putSerializable ("usuario", (Serializable) u);
+                            //principal.putExtras(bundle);
+                            startActivity(principal);
+                            finish();
                         }else{
                             Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_LONG).show();
                         }
