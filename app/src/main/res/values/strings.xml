@@ -5,4 +5,5 @@
     <string name="contrase_a">Contraseña</string>
     <string name="todo">TODO</string>
     <string name="ingresar">INGRESAR</string>
+    <string name="not_log_in">No se pudo iniciar sesión</string>
 </resources>

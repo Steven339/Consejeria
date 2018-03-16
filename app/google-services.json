@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "784847684620",
+    "firebase_url": "https://consejeria-bd95e.firebaseio.com",
+    "project_id": "consejeria-bd95e",
+    "storage_bucket": "consejeria-bd95e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:784847684620:android:0768a65e85c3c6f0",
+        "android_client_info": {
+          "package_name": "com.opciondegrado.consejeria.consejeria"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "784847684620-saqorjrkguq05sa3pthcmiqev5e58ub1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZLfJQQCkkia0M3d3O7FQZ-zWU8cW74zQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

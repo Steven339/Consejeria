@@ -2,72 +2,74 @@ package com.opciondegrado.consejeria.consejeria;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.google.gson.Gson;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+
+public class MainActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
+
+    private GoogleApiClient googleApiClient;
+    private SignInButton signInButton;
+    public static final int SIGN_IN_CODE = 784;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        final TextView mTextView = findViewById(R.id.textView);
-        mTextView.setOnClickListener(this);
+        setContentView (R.layout.activity_main);
+
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+        googleApiClient = new GoogleApiClient.Builder (this)
+                .enableAutoManage(this,this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API,gso)
+                .build();
+
+        signInButton = findViewById (R.id.signInButton);
+        signInButton.setOnClickListener (new View.OnClickListener ( ) {
+            @Override
+            public void onClick(View v) {
+                Intent intent = Auth.GoogleSignInApi.getSignInIntent(googleApiClient);
+                startActivityForResult(intent,SIGN_IN_CODE);
+            }
+        });
 
     }
 
     @Override
-    public void onClick(View v) {
-        final Intent principal = new Intent(this,principal.class);
-        EditText correo = findViewById(R.id.correo);
-        EditText pass = findViewById(R.id.pass);
-        String user = correo.getText().toString();
-        String password = pass.getText().toString();
-        if(user.equals("")){
-            Toast.makeText(getApplicationContext(),"Ingrese el correo electrónico",Toast.LENGTH_LONG).show();
-            return;
-        }
-        if(password.equals("")){
-            Toast.makeText(getApplicationContext(),"Ingrese la contraseña",Toast.LENGTH_LONG).show();
-            return;
-        }
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
-        RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="http://192.168.0.19/uniminuto/sesion.php?correo="+correo.getText().toString()+"&pass="+pass.getText().toString();
+    }
 
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        if(!response.equals("[]")){
-                            Gson gson = new Gson();
-                            user u = gson.fromJson(response, user.class);
-                            //Bundle bundle = new Bundle();
-                            //bundle.putSerializable ("usuario", (Serializable) u);
-                            //principal.putExtras(bundle);
-                            startActivity(principal);
-                            finish();
-                        }else{
-                            Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_LONG).show();
-                        }
-                    }
-                }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),"error",Toast.LENGTH_LONG).show();
-            }
-        });
-        queue.add(stringRequest);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult (requestCode, resultCode, data);
+        if(requestCode == SIGN_IN_CODE){
+            GoogleSignInResult res =  Auth.GoogleSignInApi.getSignInResultFromIntent (data);
+            handleSignInResult(res);
+        }
+    }
+
+    private void handleSignInResult(GoogleSignInResult res) {
+        if(res.isSuccess ()){
+            goMainScreen();
+        }else{
+            Toast.makeText (this, getString(R.string.not_log_in), Toast.LENGTH_SHORT).show ( );
+        }
+    }
+
+    private void goMainScreen() {
+        Intent intent = new Intent (this,InterfazPrinc.class);
+        intent.addFlags (Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity (intent);
     }
 }

@@ -23,7 +23,6 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name=".principal" />
         <activity android:name=".InterfazPrinc"></activity>
     </application>
 
