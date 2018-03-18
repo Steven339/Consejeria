@@ -5,16 +5,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient"
+    android:background="@drawable/bluee"
     tools:context="com.opciondegrado.consejeria.consejeria.MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="300dp"
         android:layout_height="100dp"
-        android:layout_above="@+id/signInButton"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="86dp"
+        android:layout_marginTop="24dp"
         android:contentDescription="@string/todo"
         app:srcCompat="@drawable/logo" />
 
@@ -22,7 +22,8 @@
         android:id="@+id/signInButton"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"></com.google.android.gms.common.SignInButton>
+        android:layout_marginBottom="41dp"></com.google.android.gms.common.SignInButton>
 
 </RelativeLayout>
