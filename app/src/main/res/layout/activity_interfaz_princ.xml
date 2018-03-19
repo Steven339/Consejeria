@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -33,8 +34,7 @@
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:background="@drawable/document"
-                        android:padding="10dp"
-                        />
+                        android:padding="10dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -74,8 +74,7 @@
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:background="@drawable/coins"
-                        android:padding="10dp"
-                        />
+                        android:padding="10dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -124,8 +123,7 @@
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:background="@drawable/calculator"
-                        android:padding="10dp"
-                        />
+                        android:padding="10dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -165,8 +163,7 @@
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:background="@drawable/presentation"
-                        android:padding="10dp"
-                        />
+                        android:padding="10dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -215,8 +212,7 @@
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:background="@drawable/folder"
-                        android:padding="10dp"
-                        />
+                        android:padding="10dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -256,8 +252,7 @@
                         android:layout_width="64dp"
                         android:layout_height="64dp"
                         android:background="@drawable/calendar"
-                        android:padding="10dp"
-                        />
+                        android:padding="10dp" />
 
                     <TextView
                         android:layout_width="wrap_content"
