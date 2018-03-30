@@ -23,7 +23,8 @@
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name=".InterfazPrinc"></activity>
+        <activity android:name=".InterfazPrinc" />
+        <activity android:name=".TusDatos"></activity>
     </application>
 
 </manifest>

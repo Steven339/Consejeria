@@ -16,7 +16,7 @@ public class SplashScreen_Activity extends AppCompatActivity {
         iv = (ImageView) findViewById(R.id.iv);
         Animation transition = AnimationUtils.loadAnimation(this,R.anim.transition);
         iv.startAnimation(transition);
-        final Intent i = new Intent(this,MainActivity.class);
+        final Intent i = new Intent(this,InterfazPrinc.class);
         Thread timer = new Thread(){
             public void run(){
                 try{
