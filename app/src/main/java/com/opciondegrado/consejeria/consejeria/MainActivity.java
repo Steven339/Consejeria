@@ -63,22 +63,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser ();
                 if(user != null){
-                    String domain = getEmailDomain(user.getEmail ());
-                    if(domain.equals ("uniminuto.edu.co")){
-                        goMainScreen ();
-                    }else{
-                        firebaseAuth.signOut ();
-                        Auth.GoogleSignInApi.revokeAccess (googleApiClient).setResultCallback (new ResultCallback<Status> ( ) {
-                            @Override
-                            public void onResult(@NonNull Status status) {
-                                if(status.isSuccess ()){
-                                    progressBar.setVisibility (View.GONE);
-                                    signInButton.setVisibility (View.VISIBLE);
-                                    Toast.makeText (getApplicationContext (),"No se pudo iniciar sesión",Toast.LENGTH_SHORT).show ();
-                                }
-                            }
-                        });
-                    }
+                    goMainScreen ();
                 }
             }
         };
@@ -117,21 +102,35 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
         }
     }
 
-    private void firebaseAuthWithGoogle(GoogleSignInAccount signInAccount) {
-
-        progressBar.setVisibility (View.VISIBLE);
-        signInButton.setVisibility (View.GONE);
-        AuthCredential credential = GoogleAuthProvider.getCredential (signInAccount.getIdToken (),null);
-        firebaseAuth.signInWithCredential (credential).addOnCompleteListener (this, new OnCompleteListener<AuthResult> ( ) {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                progressBar.setVisibility (View.GONE);
-                signInButton.setVisibility (View.VISIBLE);
-                if(!task.isSuccessful ()){
-                    Toast.makeText (getApplicationContext (),"No se pudo autenticar con la base de datos",Toast.LENGTH_SHORT).show ();
+    private void firebaseAuthWithGoogle(GoogleSignInAccount signInAccount) { ;
+        String domain = getEmailDomain(signInAccount.getEmail ());
+        if(domain.equals ("uniminuto.edu.co")){
+            progressBar.setVisibility (View.VISIBLE);
+            signInButton.setVisibility (View.INVISIBLE);
+            AuthCredential credential = GoogleAuthProvider.getCredential (signInAccount.getIdToken (),null);
+            firebaseAuth.signInWithCredential (credential).addOnCompleteListener (this, new OnCompleteListener<AuthResult> ( ) {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    progressBar.setVisibility (View.INVISIBLE);
+                    signInButton.setVisibility (View.VISIBLE);
+                    if(!task.isSuccessful ()){
+                        Toast.makeText (getApplicationContext (),"No se pudo autenticar con la base de datos",Toast.LENGTH_SHORT).show ();
+                    }
                 }
-            }
-        });
+            });
+        }else{
+            Auth.GoogleSignInApi.revokeAccess (googleApiClient).setResultCallback (new ResultCallback<Status> ( ) {
+                @Override
+                public void onResult(@NonNull Status status) {
+                    if(status.isSuccess ()){
+                        progressBar.setVisibility (View.INVISIBLE);
+                        signInButton.setVisibility (View.VISIBLE);
+                        Toast.makeText (getApplicationContext (),"No se pudo iniciar sesión",Toast.LENGTH_SHORT).show ();
+                    }
+                }
+            });
+        }
+
     }
 
 
