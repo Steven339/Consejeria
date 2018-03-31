@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
                 android:padding="6dp"
-                android:text="x.xxx.xxx.xxx"
+                android:hint="x.xxx.xxx.xxx"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
 
@@ -127,7 +127,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="89dp"
                 android:padding="6dp"
-                android:text="Ej: Bogota D.C"
+                android:hint="Ej: Bogota D.C"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
         <LinearLayout
@@ -157,7 +157,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="89dp"
                 android:padding="6dp"
-                android:text="Masculino/Femenino"
+                android:hint="Masculino/Femenino"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
     </LinearLayout>
@@ -195,7 +195,7 @@
                 android:id="@+id/edad"
                 android:layout_width="match_parent"
                 android:layout_height="62dp"
-                android:hint="Edad"
+                android:hint="Ej: 18, 19 etc"
                 android:padding="6dp"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
@@ -261,9 +261,9 @@
             <EditText
                 android:id="@+id/dr"
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
+                android:layout_height="66dp"
+                android:hint="Cll-Cra No. xx-xx"
                 android:padding="6dp"
-                android:text="Cll-Cra No. xx-xx"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
 
@@ -291,9 +291,9 @@
             <EditText
                 android:id="@+id/cl"
                 android:layout_width="match_parent"
-                android:layout_height="49dp"
+                android:layout_height="66dp"
+                android:hint="Ej: Soacha, Bosa"
                 android:padding="6dp"
-                android:text="Ej: Soacha, Bosa"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
     </LinearLayout>
@@ -328,9 +328,9 @@
             <EditText
                 android:id="@+id/tf"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="66dp"
                 android:padding="6dp"
-                android:text="xxx xx xx"
+                android:hint="xxx xx xx"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
 
@@ -358,9 +358,9 @@
             <EditText
                 android:id="@+id/tc"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="66dp"
                 android:padding="6dp"
-                android:text="xxx xxx xx xx"
+                android:hint="xxx xxx xx xx"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
     </LinearLayout>
@@ -395,9 +395,9 @@
             <EditText
                 android:id="@+id/est"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:padding="6dp"
-                android:text="Nivel: 1, 2, 3 etc"
+                android:hint="Nivel: 1, 2, 3 etc"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
 
@@ -425,9 +425,9 @@
             <EditText
                 android:id="@+id/nac"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:padding="6dp"
-                android:text="Ej: Colombia"
+                android:hint="Ej: Colombia"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
 
@@ -455,9 +455,9 @@
             <EditText
                 android:id="@+id/rh"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:padding="6dp"
-                android:text="Ej: O+"
+                android:hint="Ej: O+"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
     </LinearLayout>
