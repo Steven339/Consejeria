@@ -61,7 +61,7 @@ public class InterfazPrinc extends AppCompatActivity implements GoogleApiClient.
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (getApplicationContext (),TusDatos.class);
-                intent.addFlags (Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.addFlags ( Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity (intent);
             }
         });

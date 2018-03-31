@@ -18,12 +18,23 @@
         android:contentDescription="@string/todo"
         app:srcCompat="@drawable/logo" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/signInButton"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"/>
+
     <com.google.android.gms.common.SignInButton
         android:id="@+id/signInButton"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="41dp"></com.google.android.gms.common.SignInButton>
+        android:layout_marginBottom="41dp">
+
+    </com.google.android.gms.common.SignInButton>
 
 </RelativeLayout>

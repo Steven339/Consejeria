@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
 
     private GoogleApiClient googleApiClient;
     private SignInButton signInButton;
-    private ProgressBar progressBar;
+    private ProgressBar progress;
     public static final int SIGN_IN_CODE = 784;
 
     private FirebaseAuth firebaseAuth;
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 }
             }
         };
-        progressBar = findViewById (R.id.progressBar);
+        progress = findViewById (R.id.progressBar);
 
     }
     public String getEmailDomain(String someEmail)
@@ -107,13 +107,13 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
     private void firebaseAuthWithGoogle(GoogleSignInAccount signInAccount) { ;
         String domain = getEmailDomain(signInAccount.getEmail ());
         if(domain.equals ("uniminuto.edu.co")){
-            progressBar.setVisibility (View.VISIBLE);
+            progress.setVisibility (View.VISIBLE);
             signInButton.setVisibility (View.INVISIBLE);
             AuthCredential credential = GoogleAuthProvider.getCredential (signInAccount.getIdToken (),null);
             firebaseAuth.signInWithCredential (credential).addOnCompleteListener (this, new OnCompleteListener<AuthResult> ( ) {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    progressBar.setVisibility (View.INVISIBLE);
+                    progress.setVisibility (View.INVISIBLE);
                     signInButton.setVisibility (View.VISIBLE);
                     if(!task.isSuccessful ()){
                         Toast.makeText (getApplicationContext (),"No se pudo autenticar con la base de datos",Toast.LENGTH_SHORT).show ();
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.O
                 @Override
                 public void onResult(@NonNull Status status) {
                     if(status.isSuccess ()){
-                        progressBar.setVisibility (View.INVISIBLE);
+                        progress.setVisibility (View.INVISIBLE);
                         signInButton.setVisibility (View.VISIBLE);
                         Toast.makeText (getApplicationContext (),"No se pudo iniciar sesión",Toast.LENGTH_SHORT).show ();
                     }
