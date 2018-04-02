@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -19,13 +21,20 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class InterfazPrinc extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     private LinearLayout datos;
     GoogleApiClient googleApiClient;
     private FirebaseAuth firebaseAuth;
+
     private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
+    private DatabaseReference mDatabase;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +60,18 @@ public class InterfazPrinc extends AppCompatActivity implements GoogleApiClient.
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser ();
+
                 if(user == null){
                     goLoginScreen();
+                }else{
+
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    mDatabase = database.getReference().child("Users").child(user.getUid());
+                    GoogleSignInAccount acc = GoogleSignIn.getLastSignedInAccount(getApplicationContext ());
+                    Map newPost = new HashMap();
+                    newPost.put ("Nombre",acc.getDisplayName ());
+                    mDatabase.setValue (newPost);
+
                 }
             }
         };

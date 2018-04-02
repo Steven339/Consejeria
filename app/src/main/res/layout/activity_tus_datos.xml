@@ -1,466 +1,492 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="top"
-    android:orientation="vertical"
-    tools:context="com.opciondegrado.consejeria.consejeria.InterfazPrinc">
-    <LinearLayout
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:padding="15dp"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        android:paddingBottom="20dp"
+        tools:context="com.opciondegrado.consejeria.consejeria.InterfazPrinc">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="NOMBRE DEL ESTUDIANTE "
-            android:textStyle="bold" />
+            android:clipToPadding="false"
+            android:gravity="center_vertical|center_horizontal"
+            android:orientation="horizontal"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/Nombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NOMBRE DEL ESTUDIANTE "
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:alignmentMode="alignMargins"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:padding="10dp"
+            android:rowCount="7">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="6dp"
+                android:layout_rowWeight="1"
+                android:minWidth="160dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="NUMERO DE DOCUMENTO "
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/lightgray" />
+
+                <EditText
+                    android:id="@+id/nd"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="x.xxx.xxx.xxx"
+                    android:inputType="number"
+                    android:padding="6dp"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="6dp"
+                android:layout_rowWeight="1"
+                android:clickable="true"
+                android:minWidth="160dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="FECHA DE NACIMIENTO"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/lightgray" />
+
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:ems="10"
+                    android:hint="dd/mm/aa"
+                    android:inputType="date" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="6dp"
+                android:layout_rowWeight="1"
+                android:clickable="true"
+                android:minWidth="160dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="CIUDAD NACIMIENTO"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/lightgray" />
+
+                <EditText
+                    android:id="@+id/cn"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Ej: Bogota D.C"
+                    android:padding="6dp"
+                    android:singleLine="true"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="6dp"
+                android:layout_rowWeight="1"
+                android:clickable="true"
+                android:minWidth="160dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="GENERO"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/lightgray" />
+
+                <EditText
+                    android:id="@+id/gen"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Masculino/Femenino"
+                    android:padding="6dp"
+                    android:singleLine="true"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="6dp"
+                android:layout_rowWeight="1"
+                android:clickable="true"
+                android:minWidth="160dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/ed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="EDAD"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/lightgray" />
+
+                <EditText
+                    android:id="@+id/edad"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Ej: 18, 19 etc"
+                    android:inputType="number"
+                    android:padding="6dp"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="6dp"
+                android:layout_rowWeight="1"
+                android:clickable="true"
+                android:minWidth="160dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="CORREO INSTITUCIONAL"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/lightgray" />
+
+                <EditText
+                    android:id="@+id/ci"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Ej:xxxxxx@uniminuto.edu.co"
+                    android:inputType="textEmailAddress"
+                    android:padding="6dp"
+                    android:singleLine="true"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="6dp"
+                android:layout_rowWeight="1"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="DIRECCION RECIDENCIA"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/lightgray" />
+
+                <EditText
+                    android:id="@+id/dr"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Cll-Cra No. xx-xx"
+                    android:padding="6dp"
+                    android:singleLine="true"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="6dp"
+                android:layout_rowWeight="1"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="CIUDAD O LOCALIDAD"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/lightgray" />
+
+                <EditText
+                    android:id="@+id/cl"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Ej: Soacha, Bosa"
+                    android:padding="6dp"
+                    android:singleLine="true"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="6dp"
+                android:layout_rowWeight="1"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="TELEFONO FIJO"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/lightgray" />
+
+                <EditText
+                    android:id="@+id/tf"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="xxx xx xx"
+                    android:inputType="phone"
+                    android:padding="6dp"
+                    android:singleLine="true"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="6dp"
+                android:layout_rowWeight="1"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="TELEFONO CELULAR"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/lightgray" />
+
+                <EditText
+                    android:id="@+id/tc"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="xxx xxx xx xx"
+                    android:inputType="phone"
+                    android:padding="6dp"
+                    android:singleLine="true"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="6dp"
+                android:layout_rowWeight="1"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="ESTRATO"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/lightgray" />
+
+                <EditText
+                    android:id="@+id/est"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Nivel: 1, 2, 3 etc"
+                    android:inputType="number"
+                    android:padding="6dp"
+                    android:singleLine="true"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="6dp"
+                android:layout_rowWeight="1"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="NACIONALIDAD"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/lightgray" />
+
+                <EditText
+                    android:id="@+id/nac"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Ej: Colombia"
+                    android:padding="6dp"
+                    android:singleLine="true"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="6dp"
+                android:layout_rowWeight="1"
+                android:clickable="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="RH"
+                    android:textStyle="bold" />
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="1dp"
+                    android:background="@color/lightgray" />
+
+                <EditText
+                    android:id="@+id/rh"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Ej: O+"
+                    android:padding="6dp"
+                    android:singleLine="true"
+                    android:textColor="@android:color/darker_gray" />
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="10dp"
+                android:layout_height="5dp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:background="@color/cardview_shadow_end_color"
+                android:text=" Guardar >" />
+        </GridLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:orientation="horizontal"
-        android:layout_marginTop="17dp">
-
-        <LinearLayout
-            android:layout_width="172dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="6dp"
-            android:clickable="true"
-            android:minWidth="160dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="NUMERO DE DOCUMENTO "
-                android:textStyle="bold" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="1dp"
-                android:background="@color/lightgray" />
-
-            <EditText
-                android:id="@+id/nd"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:padding="6dp"
-                android:hint="x.xxx.xxx.xxx"
-                android:textColor="@android:color/darker_gray" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="172dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:clickable="true"
-            android:minWidth="160dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="FECHA DE NACIMIENTO"
-                android:textStyle="bold" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="1dp"
-                android:background="@color/lightgray" />
-
-            <EditText
-                android:id="@+id/fn"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:hint="dd/mm/aa"
-                android:padding="6dp"
-                android:textColor="@android:color/darker_gray" />
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp">
-
-        <LinearLayout
-            android:layout_width="172dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="6dp"
-            android:clickable="true"
-            android:minWidth="160dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="CIUDAD NACIMIENTO"
-                android:textStyle="bold" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="1dp"
-                android:background="@color/lightgray" />
-
-            <EditText
-                android:id="@+id/cn"
-                android:layout_width="match_parent"
-                android:layout_height="89dp"
-                android:padding="6dp"
-                android:hint="Ej: Bogota D.C"
-                android:textColor="@android:color/darker_gray" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="172dp"
-            android:layout_height="wrap_content"
-            android:minWidth="160dp"
-            android:clickable="true"
-            android:layout_marginLeft="6dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="GENERO"
-                android:textStyle="bold" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="1dp"
-                android:background="@color/lightgray" />
-
-            <EditText
-                android:id="@+id/gen"
-                android:layout_width="wrap_content"
-                android:layout_height="89dp"
-                android:padding="6dp"
-                android:hint="Masculino/Femenino"
-                android:textColor="@android:color/darker_gray" />
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="172dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:clickable="true"
-            android:minWidth="160dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/ed"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="EDAD"
-                android:textStyle="bold" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="1dp"
-                android:background="@color/lightgray" />
-
-            <EditText
-                android:id="@+id/edad"
-                android:layout_width="match_parent"
-                android:layout_height="62dp"
-                android:hint="Ej: 18, 19 etc"
-                android:padding="6dp"
-                android:textColor="@android:color/darker_gray" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="172dp"
-            android:layout_height="wrap_content"
-            android:minWidth="160dp"
-            android:clickable="true"
-            android:layout_marginLeft="6dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="CORREO INSTITUCIONAL"
-                android:textStyle="bold" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="1dp"
-                android:background="@color/lightgray" />
-
-            <EditText
-                android:id="@+id/ci"
-                android:layout_width="wrap_content"
-                android:layout_height="62dp"
-                android:hint="Ej:xxxxxx@uniminuto.edu.co"
-                android:padding="6dp"
-                android:textColor="@android:color/darker_gray" />
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="172dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:clickable="true"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="DIRECCION RECIDENCIA"
-                android:textStyle="bold" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="1dp"
-                android:background="@color/lightgray" />
-
-            <EditText
-                android:id="@+id/dr"
-                android:layout_width="match_parent"
-                android:layout_height="66dp"
-                android:hint="Cll-Cra No. xx-xx"
-                android:padding="6dp"
-                android:textColor="@android:color/darker_gray" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="172dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:clickable="true"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="CIUDAD O LOCALIDAD"
-                android:textStyle="bold" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="1dp"
-                android:background="@color/lightgray" />
-
-            <EditText
-                android:id="@+id/cl"
-                android:layout_width="match_parent"
-                android:layout_height="66dp"
-                android:hint="Ej: Soacha, Bosa"
-                android:padding="6dp"
-                android:textColor="@android:color/darker_gray" />
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="172dp"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:layout_marginLeft="6dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="TELEFONO FIJO"
-                android:textStyle="bold" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="1dp"
-                android:background="@color/lightgray" />
-
-            <EditText
-                android:id="@+id/tf"
-                android:layout_width="match_parent"
-                android:layout_height="66dp"
-                android:padding="6dp"
-                android:hint="xxx xx xx"
-                android:textColor="@android:color/darker_gray" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="172dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:clickable="true"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="TELEFONO CELULAR"
-                android:textStyle="bold" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="1dp"
-                android:background="@color/lightgray" />
-
-            <EditText
-                android:id="@+id/tc"
-                android:layout_width="match_parent"
-                android:layout_height="66dp"
-                android:padding="6dp"
-                android:hint="xxx xxx xx xx"
-                android:textColor="@android:color/darker_gray" />
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="false"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="138dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:clickable="true"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="ESTRATO"
-                android:textStyle="bold" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="1dp"
-                android:background="@color/lightgray" />
-
-            <EditText
-                android:id="@+id/est"
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
-                android:padding="6dp"
-                android:hint="Nivel: 1, 2, 3 etc"
-                android:textColor="@android:color/darker_gray" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="115dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:clickable="true"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="NACIONALIDAD"
-                android:textStyle="bold" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="1dp"
-                android:background="@color/lightgray" />
-
-            <EditText
-                android:id="@+id/nac"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:padding="6dp"
-                android:hint="Ej: Colombia"
-                android:textColor="@android:color/darker_gray" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="84dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
-            android:clickable="true"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:text="RH"
-                android:textStyle="bold" />
-
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_margin="1dp"
-                android:background="@color/lightgray" />
-
-            <EditText
-                android:id="@+id/rh"
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:padding="6dp"
-                android:hint="Ej: O+"
-                android:textColor="@android:color/darker_gray" />
-        </LinearLayout>
-    </LinearLayout>
-</LinearLayout>
 </ScrollView>
 
