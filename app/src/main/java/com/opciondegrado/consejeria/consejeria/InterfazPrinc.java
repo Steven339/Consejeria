@@ -24,6 +24,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,6 +36,7 @@ public class InterfazPrinc extends AppCompatActivity implements GoogleApiClient.
 
     private FirebaseAuth.AuthStateListener firebaseAuthStateListener;
     private DatabaseReference mDatabase;
+    private Usuario usuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,9 +70,13 @@ public class InterfazPrinc extends AppCompatActivity implements GoogleApiClient.
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     mDatabase = database.getReference().child("Users").child(user.getUid());
                     GoogleSignInAccount acc = GoogleSignIn.getLastSignedInAccount(getApplicationContext ());
+                    String nombre = acc.getDisplayName ();
+                    String email = acc.getEmail ();
                     Map newPost = new HashMap();
-                    newPost.put ("Nombre",acc.getDisplayName ());
+                    newPost.put ("Nombre",nombre);
+                    newPost.put ("Correo",email);
                     mDatabase.setValue (newPost);
+                    usuario = new Usuario (nombre,email);
 
                 }
             }
@@ -80,6 +86,7 @@ public class InterfazPrinc extends AppCompatActivity implements GoogleApiClient.
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (getApplicationContext (),TusDatos.class);
+                intent.putExtra ("Usuario", (Serializable) usuario);
                 intent.addFlags ( Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity (intent);
             }
