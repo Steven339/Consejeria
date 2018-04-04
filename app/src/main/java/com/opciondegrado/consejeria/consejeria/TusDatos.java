@@ -24,6 +24,5 @@ public class TusDatos extends AppCompatActivity {
         nombre.setText (usuario.getNombre ());
         correo.setText (usuario.getCorreo ());
 
-
     }
 }

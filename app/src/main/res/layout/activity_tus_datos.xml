@@ -236,6 +236,7 @@
                     android:id="@+id/ci"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
+                    android:enabled="false"
                     android:hint="Ej:xxxxxx@uniminuto.edu.co"
                     android:inputType="textEmailAddress"
                     android:padding="6dp"

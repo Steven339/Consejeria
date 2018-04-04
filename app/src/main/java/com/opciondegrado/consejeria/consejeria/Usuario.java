@@ -1,6 +1,8 @@
 package com.opciondegrado.consejeria.consejeria;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
     private String Nombre;
     private String Correo;
 
