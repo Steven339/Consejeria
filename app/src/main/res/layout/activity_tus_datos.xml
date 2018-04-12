@@ -96,7 +96,7 @@
                     android:background="@color/lightgray" />
 
                 <EditText
-                    android:id="@+id/editText"
+                    android:id="@+id/fcn"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:ems="10"
@@ -485,7 +485,6 @@
                 android:layout_height="5dp"
                 android:layout_columnWeight="1"
                 android:layout_rowWeight="1"
-                android:background="@color/cardview_shadow_end_color"
                 android:text=" Guardar >" />
         </GridLayout>
     </LinearLayout>

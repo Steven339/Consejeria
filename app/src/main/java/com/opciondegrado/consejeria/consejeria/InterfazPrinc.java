@@ -72,10 +72,12 @@ public class InterfazPrinc extends AppCompatActivity implements GoogleApiClient.
                     String nombre = acc.getDisplayName ();
                     String email = acc.getEmail ();
                     Map newPost = new HashMap();
-                    newPost.put ("Nombre",nombre);
-                    newPost.put ("Correo",email);
-                    mDatabase.setValue (newPost);
-                    usuario = new Usuario (nombre,email);
+                    newPost.put ("nombre",nombre);
+                    newPost.put ("correo",email);
+                    mDatabase.updateChildren (newPost);
+                    usuario = new Usuario (nombre,email,null,null,null,
+                            null,null,null,null,null,null,
+                            null,null,null);
 
                 }
             }
