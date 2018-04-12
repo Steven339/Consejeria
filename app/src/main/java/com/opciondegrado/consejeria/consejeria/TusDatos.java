@@ -68,6 +68,8 @@ public class TusDatos extends AppCompatActivity {
                 estrato.setText (dataSnapshot.child ("estrato").getValue ().toString ());
                 nacionalidad.setText (dataSnapshot.child ("nacionalidad").getValue ().toString ());
                 rh.setText (dataSnapshot.child ("rh").getValue ().toString ());
+                fijo.setText (dataSnapshot.child ("fijo").getValue ().toString ());
+                celular.setText (dataSnapshot.child ("celular").getValue ().toString ());
             }
 
             @Override

@@ -78,7 +78,6 @@ public class InterfazPrinc extends AppCompatActivity implements GoogleApiClient.
                     usuario = new Usuario (nombre,email,null,null,null,
                             null,null,null,null,null,null,
                             null,null,null);
-
                 }
             }
         };
