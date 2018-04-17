@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -58,18 +59,20 @@ public class TusDatos extends AppCompatActivity {
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                documento.setText (dataSnapshot.child ("documento").getValue ().toString ());
-                fechanac.setText (dataSnapshot.child ("fechanac").getValue ().toString ());
-                ciudadnac.setText (dataSnapshot.child ("ciudadnac").getValue ().toString ());
-                genero.setText (dataSnapshot.child ("genero").getValue ().toString ());
-                edad.setText (dataSnapshot.child ("edad").getValue ().toString ());
-                direccion.setText (dataSnapshot.child ("direccion").getValue ().toString ());
-                ciudad.setText (dataSnapshot.child ("ciudad").getValue ().toString ());
-                estrato.setText (dataSnapshot.child ("estrato").getValue ().toString ());
-                nacionalidad.setText (dataSnapshot.child ("nacionalidad").getValue ().toString ());
-                rh.setText (dataSnapshot.child ("rh").getValue ().toString ());
-                fijo.setText (dataSnapshot.child ("fijo").getValue ().toString ());
-                celular.setText (dataSnapshot.child ("celular").getValue ().toString ());
+                try {
+                    documento.setText (dataSnapshot.child ("documento").getValue ().toString ());
+                    fechanac.setText (dataSnapshot.child ("fechanac").getValue ().toString ());
+                    ciudadnac.setText (dataSnapshot.child ("ciudadnac").getValue ().toString ());
+                    genero.setText (dataSnapshot.child ("genero").getValue ().toString ());
+                    edad.setText (dataSnapshot.child ("edad").getValue ().toString ());
+                    direccion.setText (dataSnapshot.child ("direccion").getValue ().toString ());
+                    ciudad.setText (dataSnapshot.child ("ciudad").getValue ().toString ());
+                    estrato.setText (dataSnapshot.child ("estrato").getValue ().toString ());
+                    nacionalidad.setText (dataSnapshot.child ("nacionalidad").getValue ().toString ());
+                    rh.setText (dataSnapshot.child ("rh").getValue ().toString ());
+                    fijo.setText (dataSnapshot.child ("fijo").getValue ().toString ());
+                    celular.setText (dataSnapshot.child ("celular").getValue ().toString ());
+                } catch (Exception e) { }
             }
 
             @Override
@@ -95,6 +98,7 @@ public class TusDatos extends AppCompatActivity {
                 usuario.setNacionalidad (nacionalidad.getText ().toString ());
                 usuario.setRh (rh.getText ().toString ());
                 mDatabase.setValue (usuario);
+                Toast.makeText (TusDatos.this,"Datos guardados",Toast.LENGTH_SHORT).show ();
             }
         });
 
