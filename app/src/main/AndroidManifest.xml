@@ -29,8 +29,11 @@
             android:name=".Agendate"
             android:label="@string/title_activity_agendate"
             android:theme="@style/AppTheme" />
-        <activity android:name=".Auxilios"
-            android:theme="@style/AppTheme.Actionbar"></activity>
+        <activity
+            android:name=".Auxilios"
+            android:theme="@style/AppTheme.Actionbar" />
+        <activity android:name=".Popup"
+            android:theme="@style/AppTheme.Actionbar" ></activity>
     </application>
 
 </manifest>

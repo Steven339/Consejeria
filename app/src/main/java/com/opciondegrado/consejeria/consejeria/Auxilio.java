@@ -1,6 +1,8 @@
 package com.opciondegrado.consejeria.consejeria;
 
-public class Auxilio {
+import java.io.Serializable;
+
+public class Auxilio implements Serializable {
     String titulo,descripcion;
 
     public Auxilio(){}
