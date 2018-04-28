@@ -9,7 +9,6 @@
     tools:context="com.opciondegrado.consejeria.consejeria.MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
         android:layout_width="300dp"
         android:layout_height="100dp"
         android:layout_above="@+id/signInButton"

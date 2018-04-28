@@ -24,7 +24,11 @@
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity android:name=".InterfazPrinc" />
-        <activity android:name=".TusDatos"></activity>
+        <activity android:name=".TusDatos" />
+        <activity
+            android:name=".Agendate"
+            android:label="@string/title_activity_agendate"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

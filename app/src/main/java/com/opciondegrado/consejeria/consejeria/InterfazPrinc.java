@@ -29,7 +29,7 @@ import java.util.Map;
 
 
 public class InterfazPrinc extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
-    private LinearLayout datos;
+    private LinearLayout datos,agendate;
     GoogleApiClient googleApiClient;
     private FirebaseAuth firebaseAuth;
 
@@ -43,8 +43,6 @@ public class InterfazPrinc extends AppCompatActivity implements GoogleApiClient.
 
         Toolbar toolbar = findViewById (R.id.toolbar);
         setSupportActionBar (toolbar);
-
-        datos = findViewById(R.id.tus_datos);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder (GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail ()
@@ -82,11 +80,22 @@ public class InterfazPrinc extends AppCompatActivity implements GoogleApiClient.
             }
         };
 
+        datos = findViewById(R.id.tus_datos);
         datos.setOnClickListener(new View.OnClickListener () {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (getApplicationContext (),TusDatos.class);
                 intent.putExtra ("Usuario", usuario);
+                intent.addFlags ( Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity (intent);
+            }
+        });
+
+        agendate = findViewById (R.id.agendate);
+        agendate.setOnClickListener (new View.OnClickListener ( ) {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (getApplicationContext (),Agendate.class);
                 intent.addFlags ( Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity (intent);
             }
