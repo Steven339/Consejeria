@@ -29,7 +29,7 @@ import java.util.Map;
 
 
 public class InterfazPrinc extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
-    private LinearLayout datos,agendate;
+    private LinearLayout datos,agendate,auxilios;
     GoogleApiClient googleApiClient;
     private FirebaseAuth firebaseAuth;
 
@@ -100,6 +100,17 @@ public class InterfazPrinc extends AppCompatActivity implements GoogleApiClient.
                 startActivity (intent);
             }
         });
+
+        auxilios = findViewById (R.id.auxilios);
+        auxilios.setOnClickListener (new View.OnClickListener ( ) {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (getApplicationContext (),Auxilios.class);
+                intent.addFlags ( Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity (intent);
+            }
+        });
+
 
     }
 
